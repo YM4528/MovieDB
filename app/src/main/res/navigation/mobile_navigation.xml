@@ -25,5 +25,22 @@
         android:id="@+id/nav_nowplaying"
         android:name="com.ydnm4528.moviedb.ui.nowplaying.NowplayingFragment"
         android:label="@string/menu_nowplaying"
-        tools:layout="@layout/fragment_nowplaying" />
+        tools:layout="@layout/fragment_nowplaying" >
+
+        <action
+            android:id="@+id/action_nav_nowplaying_to_nav_detail_nowplaying"
+            app:destination="@id/nav_detail_nowplaying" />
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail_nowplaying"
+        android:name="com.ydnm4528.moviedb.ui.DetailNowplayingFragment"
+        android:label="fragment_detail_nowplaying"
+        tools:layout="@layout/fragment_detail_nowplaying" >
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
 </navigation>

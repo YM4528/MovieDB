@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ydnm4528.moviedb.R
 import com.ydnm4528.moviedb.model.ResultsItem
@@ -41,11 +42,14 @@ class NowplayingFragment : Fragment(), NowplayingAdapter.OnClickListener {
         )
     }
     override fun onClick(item: ResultsItem) {
+        val directions = NowplayingFragmentDirections.actionNavNowplayingToNavDetailNowplaying(item)
+        view?.findNavController()?.navigate(directions)
     }
 
     override fun onResume() {
         super.onResume()
         nowplayingViewModel.loadData()
     }
+
 
 }
