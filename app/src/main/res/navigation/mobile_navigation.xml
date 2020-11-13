@@ -9,21 +9,94 @@
         android:id="@+id/nav_popular"
         android:name="com.ydnm4528.moviedb.ui.popular.PopularFragment"
         android:label="@string/menu_popular"
-        tools:layout="@layout/fragment_popular" />
+        tools:layout="@layout/fragment_popular" >
+        <action
+            android:id="@+id/action_nav_popular_to_nav_detail_popular"
+            app:destination="@id/nav_detail_popular" />
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_toprated"
         android:name="com.ydnm4528.moviedb.ui.toprated.TopratedFragment"
         android:label="@string/menu_toprated"
-        tools:layout="@layout/fragment_toprated" />
+        tools:layout="@layout/fragment_toprated" >
+        <action
+            android:id="@+id/action_nav_toprated_to_nav_detail_toprated"
+            app:destination="@id/nav_detail_toprated" />
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
     <fragment
         android:id="@+id/nav_upcoming"
         android:name="com.ydnm4528.moviedb.ui.upcoming.UpcomingFragment"
         android:label="@string/menu_upcoming"
-        tools:layout="@layout/fragment_upcoming" />
+        tools:layout="@layout/fragment_upcoming" >
+        <action
+            android:id="@+id/action_nav_upcoming_to_nav_detail_upcoming"
+            app:destination="@id/nav_detail_upcoming" />
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
     <fragment
         android:id="@+id/nav_nowplaying"
         android:name="com.ydnm4528.moviedb.ui.nowplaying.NowplayingFragment"
         android:label="@string/menu_nowplaying"
-        tools:layout="@layout/fragment_nowplaying" />
+        tools:layout="@layout/fragment_nowplaying" >
+
+        <action
+            android:id="@+id/action_nav_nowplaying_to_nav_detail_nowplaying"
+            app:destination="@id/nav_detail_nowplaying" />
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+        <action
+            android:id="@+id/action_nav_nowplaying_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail_nowplaying"
+        android:name="com.ydnm4528.moviedb.detail.DetailNowplayingFragment"
+        android:label="fragment_detail_nowplaying"
+        tools:layout="@layout/fragment_detail_nowplaying" >
+        <argument
+            android:name="item"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail_popular"
+        android:name="com.ydnm4528.moviedb.detail.PopularDetailFragment"
+        android:label="fragment_popular_detail"
+        tools:layout="@layout/fragment_popular_detail" >
+        <argument
+            android:name="popularitem"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail_toprated"
+        android:name="com.ydnm4528.moviedb.detail.TopratedDetailFragment"
+        android:label="fragment_toprated_detail"
+        tools:layout="@layout/fragment_toprated_detail" >
+        <argument
+            android:name="topitem"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_detail_upcoming"
+        android:name="com.ydnm4528.moviedb.detail.UpcomingDetailFragment"
+        android:label="fragment_upcoming_detail"
+        tools:layout="@layout/fragment_upcoming_detail" >
+        <argument
+            android:name="upcomeitem"
+            app:argType="com.ydnm4528.moviedb.model.ResultsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.ydnm4528.moviedb.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
