@@ -28,6 +28,19 @@ class ApiClient {
         return apiInterface.getNowPlaying("ad687434515bde81fca65c5a02adcb39")
 
     }
+
+    fun getUpcoming():Call<NowPlayingModel>{
+        return apiInterface.getUpcoming("ad687434515bde81fca65c5a02adcb39")
+    }
+
+    fun getPopular():Call<NowPlayingModel>{
+        return apiInterface.getPopular("ad687434515bde81fca65c5a02adcb39")
+    }
+
+    fun getTopRated():Call<NowPlayingModel>{
+        return apiInterface.getTopRated("ad687434515bde81fca65c5a02adcb39")
+    }
+
 //    fun getDetailMovie(id : Int) : Call<ResultsItem>{
 //        return apiInterface.getDetailMovie(id,"ad687434515bde81fca65c5a02adcb39")
 //    }

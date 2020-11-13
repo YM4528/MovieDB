@@ -1,4 +1,4 @@
-package com.ydnm4528.moviedb.ui.nowplaying
+package com.ydnm4528.moviedb.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import com.ydnm4528.moviedb.R
 import com.ydnm4528.moviedb.model.ResultsItem
 import kotlinx.android.synthetic.main.item_nowplaying.view.*
 
-class NowplayingAdapter : RecyclerView.Adapter<NowplayingAdapter.NowplayingViewHolder> () {
+class MovieAdapter : RecyclerView.Adapter<MovieAdapter.NowplayingViewHolder> () {
 
     private var articlesItems:List<ResultsItem> = ArrayList()
     var clickListener: OnClickListener?=null

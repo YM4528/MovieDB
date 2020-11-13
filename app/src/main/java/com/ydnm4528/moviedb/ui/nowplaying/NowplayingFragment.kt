@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ydnm4528.moviedb.R
+import com.ydnm4528.moviedb.adapter.MovieAdapter
 import com.ydnm4528.moviedb.model.ResultsItem
 import kotlinx.android.synthetic.main.fragment_nowplaying.*
 
-class NowplayingFragment : Fragment(), NowplayingAdapter.OnClickListener {
+class NowplayingFragment : Fragment(), MovieAdapter.OnClickListener {
     private lateinit var nowplayingViewModel: NowplayingViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +30,7 @@ class NowplayingFragment : Fragment(), NowplayingAdapter.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         nowplayingViewModel= ViewModelProvider(this).get(nowplayingViewModel::class.java)
 
-        var nowplayingAdapter = NowplayingAdapter()
+        var nowplayingAdapter = MovieAdapter()
 
         nowplayingRecycler.apply {
             layoutManager = GridLayoutManager(context, 2)
@@ -40,6 +42,9 @@ class NowplayingFragment : Fragment(), NowplayingAdapter.OnClickListener {
                 nowplayingAdapter.updateArticle(movies.results as List<ResultsItem>)
             }
         )
+        btnClick.setOnClickListener{
+            findNavController().navigate(R.id.action_nav_nowplaying_to_searchFragment)
+        }
     }
     override fun onClick(item: ResultsItem) {
         val directions = NowplayingFragmentDirections.actionNavNowplayingToNavDetailNowplaying(item)
